@@ -2,6 +2,7 @@ import os
 import time
 import redis
 import messages_pb2
+import socket
 from datetime import datetime
 from urllib.parse import urlparse
 
@@ -25,7 +26,8 @@ else:
 TASK_STREAM = 'tasks'
 RESULT_STREAM = 'results'
 CONSUMER_GROUP = 'python-workers'
-CONSUMER_NAME = 'worker-1'
+# Use hostname and process ID to create unique consumer name for scaling
+CONSUMER_NAME = os.getenv('CONSUMER_NAME', f'worker-{socket.gethostname()}-{os.getpid()}')
 
 def process_task(task_msg):
     """Process the task and return a result"""
