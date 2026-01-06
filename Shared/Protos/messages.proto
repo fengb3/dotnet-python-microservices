@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package microservices;
+
+// Task message sent from ASP.NET to Python worker
+message TaskMessage {
+  string task_id = 1;
+  string task_type = 2;
+  string data = 3;
+  int64 timestamp = 4;
+}
+
+// Result message sent from Python worker to ASP.NET
+message ResultMessage {
+  string task_id = 1;
+  string status = 2;
+  string result = 3;
+  int64 timestamp = 4;
+}
