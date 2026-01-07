@@ -13,16 +13,10 @@ builder.Services.AddProblemDetails();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-// Add Redis connection
-builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
-{
-    var configuration = sp.GetRequiredService<IConfiguration>();
-    var redisConnection = configuration.GetConnectionString("redis") ?? "localhost:6379";
-    return ConnectionMultiplexer.Connect(redisConnection);
-});
-
 // Add hosted service for consuming results
 builder.Services.AddHostedService<ResultConsumerService>();
+
+builder.AddRedisClient(connectionName: "redis");
 
 var app = builder.Build();
 
@@ -55,10 +49,9 @@ app.MapPost("/task", async (TaskRequest request, IConnectionMultiplexer redis, I
     byte[] messageBytes = taskMsg.ToByteArray();
     
     // Publish to Redis Stream
-    await db.StreamAddAsync("tasks", new NameValueEntry[]
-    {
+    await db.StreamAddAsync("tasks", [
         new NameValueEntry("data", messageBytes)
-    });
+    ]);
     
     logger.LogInformation("Published task {TaskId} of type {TaskType}", taskMsg.TaskId, taskMsg.TaskType);
     

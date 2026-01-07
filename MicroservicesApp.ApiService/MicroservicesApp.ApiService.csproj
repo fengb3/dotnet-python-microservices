@@ -11,13 +11,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspire.StackExchange.Redis" Version="13.1.0" />
     <PackageReference Include="Google.Protobuf" Version="3.33.2" />
     <PackageReference Include="Grpc.Tools" Version="2.76.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
-    <PackageReference Include="StackExchange.Redis" Version="2.10.1" />
+<!--    <PackageReference Include="StackExchange.Redis" Version="2.10.1" />-->
   </ItemGroup>
 
   <ItemGroup>

@@ -4,10 +4,10 @@ package microservices;
 
 // Task message sent from ASP.NET to Python worker
 message TaskMessage {
-  string task_id = 1;
-  string task_type = 2;
-  string data = 3;
-  int64 timestamp = 4;
+  string task_id = 1; // Unique identifier for the task
+  string task_type = 2; // Type of task to be performed
+  string data = 3; // Data required for the task
+  int64 timestamp = 4; // Timestamp when the task was created
 }
 
 // Result message sent from Python worker to ASP.NET
