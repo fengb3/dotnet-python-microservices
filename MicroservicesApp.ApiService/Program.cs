@@ -142,7 +142,9 @@ class ResultConsumerService : BackgroundService
                     {
                         // Deserialize the result message
                         var messageData = entry.Values.First(v => v.Name == "data").Value;
-                        var resultMsg = ResultMessage.Parser.ParseFrom((byte[])messageData!);
+                        // var resultMsg = ResultMessage.Parser.ParseFrom((byte[])messageData!);
+                        var parser = ResultMessage.Parser;
+                        var resultMsg = parser.ParseFrom((byte[])messageData!);
                         
                         // Log the result
                         _logger.LogInformation(
