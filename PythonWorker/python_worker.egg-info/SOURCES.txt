@@ -1,0 +1,8 @@
+messages_pb2.py
+pyproject.toml
+worker.py
+python_worker.egg-info/PKG-INFO
+python_worker.egg-info/SOURCES.txt
+python_worker.egg-info/dependency_links.txt
+python_worker.egg-info/requires.txt
+python_worker.egg-info/top_level.txt
