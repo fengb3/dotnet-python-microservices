@@ -1,0 +1,23 @@
+[project]
+name = "worker"
+version = "0.1.0"
+description = "Python worker for processing tasks from Redis Stream"
+requires-python = ">=3.12"
+
+dependencies = [
+  "redis>=7.1.0",
+  "protobuf>=6.33.2",
+  "grpcio-tools>=1.76.0",
+  "loguru>=0.7.3",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main"]
+
+[tool.uv]
+index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+

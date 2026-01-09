@@ -1,7 +1,0 @@
-Metadata-Version: 2.4
-Name: python-worker
-Version: 0.1.0
-Summary: Python worker for processing tasks from Redis Stream
-Requires-Python: >=3.12
-Requires-Dist: redis>=5.2.1
-Requires-Dist: protobuf>=5.29.2

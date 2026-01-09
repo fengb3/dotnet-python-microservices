@@ -7,6 +7,7 @@
     <UserSecretsId>71e82cee-2c6b-447b-b263-30104e39d75f</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JmHell\JmHell\JmHell.csproj" />
     <ProjectReference Include="..\MicroservicesApp.ApiService\MicroservicesApp.ApiService.csproj" />
     <ProjectReference Include="..\MicroservicesApp.Web\MicroservicesApp.Web.csproj" />
   </ItemGroup>

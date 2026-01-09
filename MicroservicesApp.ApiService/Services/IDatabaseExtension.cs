@@ -10,7 +10,7 @@ public static class IDatabaseExtension
 
     public static async Task EnsureInitialized<T>(this IDatabase db, ILogger logger)
     {
-        var keyName = typeof(T).FullName;
+        var keyName = typeof(T).Name;
         try
         {
             await db.StreamCreateConsumerGroupAsync( keyName, ConsumerGroup, "0", createStream: true);
@@ -30,12 +30,12 @@ public static class IDatabaseExtension
         {
             new NameValueEntry("data", data.ToByteArray()),
         };
-        return db.StreamAddAsync(typeof(T).FullName, entry);
+        return db.StreamAddAsync(typeof(T).Name, entry);
     }
 
     public static async Task<T?> ReadMessageAsync<T>(this IDatabase db, Func<byte[], T> parser) where T : Google.Protobuf.IMessage<T>
     {
-        var key = typeof(T).FullName;
+        var key = typeof(T).Name;
         var results = await db.StreamReadGroupAsync(
             key,
             ConsumerGroup,

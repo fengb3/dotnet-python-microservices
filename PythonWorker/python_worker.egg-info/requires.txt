@@ -1,2 +1,0 @@
-redis>=5.2.1
-protobuf>=5.29.2

@@ -50,7 +50,7 @@ app.MapPost("/task", async (IConnectionMultiplexer redis, ILogger<Program> logge
     
     await db.SendMessageAsync(taskMsg);
     
-    logger.LogInformation("Published task {TaskId} of type {TaskType}", taskMsg.TaskId, taskMsg.GetType().FullName);
+    logger.LogInformation("Published task {TaskId} of type {TaskType}", taskMsg.TaskId, taskMsg.GetType().Name);
     
     return Results.Ok(new { taskId = taskMsg.TaskId, message = "Task submitted successfully" });
 })
