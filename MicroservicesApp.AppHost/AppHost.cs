@@ -12,7 +12,7 @@ var apiService = builder
 
 // Add Python worker using Aspire Python hosting integration
 var pythonWorker = builder
-    .AddPythonApp(name: "python-worker", appDirectory: "../PythonWorker", scriptPath: "worker.py")
+    .AddPythonApp(name: "python-worker", appDirectory: "../PythonWorker", scriptPath: "./main.py")
     .WithUv()
     .WithReference(redis)
     .WaitFor(redis);

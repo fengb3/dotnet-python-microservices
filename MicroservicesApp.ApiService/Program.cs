@@ -34,16 +34,17 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapPost("/task", async (TaskRequest request, IConnectionMultiplexer redis, ILogger<Program> logger) =>
+app.MapPost("/task", async (IConnectionMultiplexer redis, ILogger<Program> logger) =>
 {
     var db = redis.GetDatabase();
     
     // Create task message
-    var taskMsg = new ResultMessage
+    var taskMsg = new TaskMessage
     {
-        TaskId    = Guid.NewGuid().ToString(),
-        Status    = "good",
-        Result    = "this is result",
+        TaskId = Guid.NewGuid()
+            .ToString(),
+        TaskType  = "this is task type",
+        Data      = "u wanna some f2king data ?",
         Timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds()
     };
     

@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0emessages.proto\x12\rmicroservices\"R\n\x0bTaskMessage\x12\x0f\n\x07task_id\x18\x01 \x01(\t\x12\x11\n\ttask_type\x18\x02 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\"S\n\rResultMessage\x12\x0f\n\x07task_id\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\x0e\n\x06result\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0emessages.proto\x12\rmicroservices\"R\n\x0bTaskMessage\x12\x0f\n\x07task_id\x18\x01 \x01(\t\x12\x11\n\ttask_type\x18\x02 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\"S\n\rResultMessage\x12\x0f\n\x07task_id\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\x0e\n\x06result\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\"8\n\x12QuerySearchRequest\x12\r\n\x05query\x18\x01 \x01(\t\x12\x13\n\x0bmax_results\x18\x02 \x01(\x05\"/\n\x11QuerySearchResult\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0b\n\x03url\x18\x02 \x01(\t\"T\n\tAlbumInfo\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x61rtist\x18\x03 \x01(\t\x12\x0c\n\x04year\x18\x04 \x01(\x05\x12\x0e\n\x06tracks\x18\x05 \x03(\t\"1\n\tImageInfo\x12\x10\n\x08\x61lbum_id\x18\x01 \x01(\x05\x12\x12\n\nimage_data\x18\x02 \x01(\x0c\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,4 +35,12 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_TASKMESSAGE']._serialized_end=115
   _globals['_RESULTMESSAGE']._serialized_start=117
   _globals['_RESULTMESSAGE']._serialized_end=200
+  _globals['_QUERYSEARCHREQUEST']._serialized_start=202
+  _globals['_QUERYSEARCHREQUEST']._serialized_end=258
+  _globals['_QUERYSEARCHRESULT']._serialized_start=260
+  _globals['_QUERYSEARCHRESULT']._serialized_end=307
+  _globals['_ALBUMINFO']._serialized_start=309
+  _globals['_ALBUMINFO']._serialized_end=393
+  _globals['_IMAGEINFO']._serialized_start=395
+  _globals['_IMAGEINFO']._serialized_end=444
 # @@protoc_insertion_point(module_scope)
