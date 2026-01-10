@@ -1,5 +1,7 @@
 using JmHell.Client.Pages;
 using JmHell.Components;
+using JmHell.Database;
+using JmHell.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,14 @@ builder.Services.AddProblemDetails();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+// add JmHell database
+builder.AddJmHellDatabase();
+
+builder.Services.AddSingleton<InitializationService>();
+
+// add background service to update database
+builder.Services.AddHostedService<JmHell.HostedServices.UpdateDatabaseBackgroundService>();
 
 var app = builder.Build();
 
@@ -41,6 +51,5 @@ app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(JmHell.Client._Imports).Assembly);
 
-app.MapDefaultEndpoints();
 
 app.Run();
