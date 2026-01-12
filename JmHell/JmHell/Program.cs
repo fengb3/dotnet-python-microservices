@@ -2,6 +2,7 @@ using JmHell.Client.Pages;
 using JmHell.Components;
 using JmHell.Database;
 using JmHell.Services;
+using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,9 @@ builder.Services.AddProblemDetails();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+// Add MudBlazor services
+builder.Services.AddMudServices();
 
 // add JmHell database
 builder.AddJmHellDatabase();

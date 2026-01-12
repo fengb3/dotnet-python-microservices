@@ -5,7 +5,8 @@ from loguru import logger
 
 
 class TaskMessageHandler(MessageHandler[TaskMessage]):
-    def handle_message(self, message: TaskMessage):
+    
+    def handle_message(self, message: TaskMessage) -> bool:
         """Processes a TaskMessage."""
         logger.info(f"Handling TaskMessage with ID: {message.task_id}")
         logger.info(f"Task Type: {message.task_type}")
@@ -15,4 +16,5 @@ class TaskMessageHandler(MessageHandler[TaskMessage]):
         time.sleep(1)
 
         logger.info(f"Finished processing task {message.task_id}")
+        return True
         

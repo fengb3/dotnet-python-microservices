@@ -80,8 +80,14 @@ class RedisListener:
                             proto_message: Message = message_type()
                             proto_message.ParseFromString(raw)
 
-                            handler_instance.handle_message(proto_message)
-                            self.redis_client.xack(stream_name, group_name, message_id)
+                            result = handler_instance.handle_message(proto_message)
+
+                            if result is False:
+                                logger.warning(f"Consumption failed for message {message_id}. Re-queueing...")
+                                self.redis_client.xadd(stream_name, message_data)
+                                self.redis_client.xack(stream_name, group_name, message_id)
+                            else:
+                                self.redis_client.xack(stream_name, group_name, message_id)
                         except Exception as e:
                             logger.error(f"Error processing message {message_id} from stream '{stream_name}': {e}")
 

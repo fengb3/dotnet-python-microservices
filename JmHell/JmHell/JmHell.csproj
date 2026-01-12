@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.1" />
+        <PackageReference Include="MudBlazor" Version="8.15.0"/>
         <ProjectReference Include="..\..\JmHell.Database\JmHell.Database.csproj" />
         <ProjectReference Include="..\..\MicroservicesApp.ServiceDefaults\MicroservicesApp.ServiceDefaults.csproj" />
         <ProjectReference Include="..\JmHell.Client\JmHell.Client.csproj"/>

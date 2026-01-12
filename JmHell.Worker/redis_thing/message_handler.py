@@ -11,6 +11,5 @@ class MessageHandler(Generic[T], ABC):
         pass
 
     @abstractmethod
-    def handle_message(self, message: T):
+    def handle_message(self, message: T) -> bool:
         pass
-
